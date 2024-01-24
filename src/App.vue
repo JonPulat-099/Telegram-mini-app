@@ -10,7 +10,15 @@ function showQRScanner() {
   const par = {
     text: 'Press to scan'
   }
-  window.Telegram.WebApp.showScanQrPopup(par)
+  window.Telegram.WebApp.window.Telegram.WebApp(par, (val) => {
+    if (val) {
+      window.Telegram.WebApp.PopupParams('Scan Res', JSON.stringify(val))
+    } else {
+      window.Telegram.WebApp.PopupParams('Scan Res', 'Error')
+    }
+    
+    return true
+  })
 }
 </script>
 
