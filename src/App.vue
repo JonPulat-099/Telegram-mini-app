@@ -5,6 +5,13 @@ import { onMounted } from 'vue'
 onMounted(() => {
   window.Telegram.WebApp.viewportHeight
 })
+
+const showQRScanner = () => {
+  const par = {
+    text: 'Press to scan'
+  }
+  TWA.showScanQrPopup(par)
+}
 </script>
 
 <template>
@@ -18,6 +25,9 @@ onMounted(() => {
       </nav>
     </div>
   </header>
+
+  <h3>QR scanner</h3>
+  <button @click="showQRScanner()">Scan QR code</button><br />
 
   <RouterView />
 </template>
