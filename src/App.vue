@@ -3,20 +3,17 @@ import { RouterLink, RouterView } from 'vue-router'
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  window.Telegram.WebApp.showScanQrPopup(par)
+  // window.Telegram.WebApp.showScanQrPopup(par)
 })
 
 function showQRScanner() {
   const par = {
     text: 'Press to scan'
   }
-  window.Telegram.WebApp.window.Telegram.WebApp(par, (val) => {
-    if (val) {
-      window.Telegram.WebApp.PopupParams('Scan Res', JSON.stringify(val))
-    } else {
-      window.Telegram.WebApp.PopupParams('Scan Res', 'Error')
-    }
-    
+
+  window.Telegram.WebApp.window.Telegram.WebApp(par, (event) => {
+    window.Telegram.WebApp.PopupParams('Scan Res', JSON.stringify(event))
+
     return true
   })
 }
