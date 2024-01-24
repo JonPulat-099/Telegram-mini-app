@@ -3,14 +3,14 @@ import { RouterLink, RouterView } from 'vue-router'
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  window.Telegram.WebApp.viewportHeight
+  window.Telegram.WebApp.showScanQrPopup(par)
 })
 
-const showQRScanner = () => {
+function showQRScanner() {
   const par = {
     text: 'Press to scan'
   }
-  TWA.showScanQrPopup(par)
+  window.Telegram.WebApp.showScanQrPopup(par)
 }
 </script>
 
