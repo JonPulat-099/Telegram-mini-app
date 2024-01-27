@@ -13,12 +13,12 @@ function showQRScanner() {
   window.Telegram.WebApp.showScanQrPopup(par, (val) => {
     window.Telegram.WebApp.closeScanQrPopup()
     if (val) {
-      window.Telegram.WebApp.PopupParams({
+      window.Telegram.WebApp.showPopup({
         title: 'SCAN success',
         message: JSON.stringify(val)
       })
     } else {
-      window.Telegram.WebApp.PopupParams({
+      window.Telegram.WebApp.showPopup({
         title: 'Scan failed',
         message: 'empty'
       })
@@ -29,7 +29,7 @@ function showQRScanner() {
 }
 
 const openPopup = () => {
-  window.Telegram.WebApp.PopupParams({
+  window.Telegram.WebApp.showPopup({
     title: 'SCAN success',
     message: 'hello world'
   })
