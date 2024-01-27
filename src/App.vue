@@ -14,17 +14,24 @@ function showQRScanner() {
     window.Telegram.WebApp.closeScanQrPopup()
     if (val) {
       window.Telegram.WebApp.PopupParams({
-        title: 'Scan Res',
+        title: 'SCAN success',
         message: JSON.stringify(val)
       })
     } else {
       window.Telegram.WebApp.PopupParams({
-        title: 'Scan Res',
+        title: 'Scan failed',
         message: 'empty'
       })
     }
 
     return true
+  })
+}
+
+const openPopup = () => {
+  window.Telegram.WebApp.PopupParams({
+    title: 'SCAN success',
+    message: 'hello world'
   })
 }
 </script>
@@ -43,7 +50,7 @@ function showQRScanner() {
 
   <h3>QR scanner</h3>
   <button @click="showQRScanner()">Scan QR code</button><br />
-
+  <button @click="openPopup">show Popup</button>
   <RouterView />
 </template>
 
