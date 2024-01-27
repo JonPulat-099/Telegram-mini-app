@@ -11,10 +11,17 @@ function showQRScanner() {
     text: 'Press to scan'
   }
   window.Telegram.WebApp.showScanQrPopup(par, (val) => {
+    window.Telegram.WebApp.closeScanQrPopup()
     if (val) {
-      window.Telegram.WebApp.PopupParams('Scan Res', JSON.stringify(val))
+      window.Telegram.WebApp.PopupParams({
+        title: 'Scan Res',
+        message: JSON.stringify(val)
+      })
     } else {
-      window.Telegram.WebApp.PopupParams('Scan Res', JSON.stringify(val))
+      window.Telegram.WebApp.PopupParams({
+        title: 'Scan Res',
+        message: 'empty'
+      })
     }
 
     return true
